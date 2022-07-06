@@ -4,12 +4,6 @@
     "parameters": {
         "mylocation": {
             "type": "string",
-            "allowedValues": [
-                "eastUS",
-                "australiaeast"
-
-            ],
-            "defaultValue": "australiaeast",
             "metadata": {
                 "description": "the location where I want to deploy my resource"
             }
