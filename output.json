@@ -11,7 +11,7 @@
     },
     "functions": [],
     "variables": {
-        "mystorage": "[concat('mystorage',uniqueString(resourceGroup().id))]"
+        "mystorage": "[concat('mystorage1',uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
