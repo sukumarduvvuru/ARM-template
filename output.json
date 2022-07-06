@@ -1,0 +1,52 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mylocation": {
+            "type": "string",
+            "allowedValues": [
+                "eastUS",
+                "australiaeast"
+
+            ],
+            "defaultValue": "australiaeast",
+            "metadata": {
+                "description": "the location where I want to deploy my resource"
+            }
+        }
+    },
+    "functions": [],
+    "variables": {
+        "mystorage": "[concat('mystorage',uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "name": "[variables('mystorage')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-04-01",
+            "tags": {
+                "displayName": "[variables('mystorage')]"
+            },
+            "location": "[ parameters('mylocation')]",
+            "kind": "StorageV2",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            }
+        }
+    ],
+    "outputs": {
+        "myoutput": {
+            "type": "string",
+            "value": "[variables('mystorage')]"
+            
+
+        },
+        "mylocation": {
+            "type": "string",
+            "value": "[parameters('mylocation')]"
+}
+
+    }
+
+}
